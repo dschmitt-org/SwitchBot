@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchBot", "SwitchBot\SwitchBot.csproj", "{B75730BE-3063-4FC2-AB7F-6A3F7C47C59C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchBot.Demo", "SwitchBot.Demo\SwitchBot.Demo.csproj", "{775D3A67-F305-475C-8D7D-BE7A864F3AC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B75730BE-3063-4FC2-AB7F-6A3F7C47C59C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B75730BE-3063-4FC2-AB7F-6A3F7C47C59C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B75730BE-3063-4FC2-AB7F-6A3F7C47C59C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B75730BE-3063-4FC2-AB7F-6A3F7C47C59C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{775D3A67-F305-475C-8D7D-BE7A864F3AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{775D3A67-F305-475C-8D7D-BE7A864F3AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{775D3A67-F305-475C-8D7D-BE7A864F3AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{775D3A67-F305-475C-8D7D-BE7A864F3AC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
