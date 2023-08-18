@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
 namespace SwitchBot.JsonConverters;
-public class JsonPathConverter : JsonConverter
+internal class JsonPathConverter : JsonConverter
 {
     public override object ReadJson(
         JsonReader reader,
@@ -44,14 +44,12 @@ public class JsonPathConverter : JsonConverter
         return targetObj;
     }
 
-    /// <inheritdoc />
     public override bool CanConvert(Type objectType)
     {
         // CanConvert is not called when [JsonConverter] attribute is used
         return objectType.GetCustomAttributes(true).OfType<JsonPathConverter>().Any();
     }
 
-    /// <inheritdoc />
     public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
     {
         var properties = value.GetType().GetRuntimeProperties().Where(p => p.CanRead && p.CanWrite);
