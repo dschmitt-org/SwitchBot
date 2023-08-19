@@ -52,43 +52,55 @@ internal class JsonPathConverter : JsonConverter
 
     public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
     {
-        var properties = value.GetType().GetRuntimeProperties().Where(p => p.CanRead && p.CanWrite);
-        JObject main = new JObject();
-        foreach (PropertyInfo prop in properties)
+        JObject resultJson = new();
+
+        // Get all properties of a provided class
+        IEnumerable<PropertyInfo> properties = value
+            .GetType().GetRuntimeProperties().Where(p => p.CanRead && p.CanWrite);
+
+        foreach (PropertyInfo propertyInfo in properties)
         {
-            JsonPropertyAttribute att = prop.GetCustomAttributes(true)
+            JsonPropertyAttribute propertyAttribute = propertyInfo
+                .GetCustomAttributes(true)
                 .OfType<JsonPropertyAttribute>()
                 .FirstOrDefault();
 
-            string jsonPath = att != null ? att.PropertyName : prop.Name;
+            // Use either custom JSON property or regular property name
+            string propertyJsonPath = propertyAttribute != null
+                ? propertyAttribute.PropertyName
+                : propertyInfo.Name;
 
-            if (serializer.ContractResolver is DefaultContractResolver)
+            if (serializer.ContractResolver is DefaultContractResolver resolver)
             {
-                var resolver = (DefaultContractResolver)serializer.ContractResolver;
-                jsonPath = resolver.GetResolvedPropertyName(jsonPath);
+                propertyJsonPath = resolver.GetResolvedPropertyName(propertyJsonPath);
             }
 
-            var nesting = jsonPath.Split('.');
-            JObject lastLevel = main;
+            if (string.IsNullOrEmpty(propertyJsonPath))
+            {
+                continue;
+            }
 
+            // Split by the delimiter, and traverse according to the path
+            string[] nesting = propertyJsonPath.Split('/');
+            JObject lastJsonLevel = resultJson;
             for (int i = 0; i < nesting.Length; i++)
             {
                 if (i == nesting.Length - 1)
                 {
-                    lastLevel[nesting[i]] = new JValue(prop.GetValue(value));
+                    lastJsonLevel[nesting[i]] = JToken.FromObject(propertyInfo.GetValue(value));
                 }
                 else
                 {
-                    if (lastLevel[nesting[i]] == null)
+                    if (lastJsonLevel[nesting[i]] == null)
                     {
-                        lastLevel[nesting[i]] = new JObject();
+                        lastJsonLevel[nesting[i]] = new JObject();
                     }
 
-                    lastLevel = (JObject)lastLevel[nesting[i]];
+                    lastJsonLevel = (JObject)lastJsonLevel[nesting[i]];
                 }
             }
         }
 
-        serializer.Serialize(writer, main);
+        serializer.Serialize(writer, resultJson);
     }
 }

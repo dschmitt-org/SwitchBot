@@ -11,18 +11,25 @@ public class SwitchBotRestClientDevicesApi : BaseSwitchBotRestClientApiV1_1, ISw
         : base(logger, flurlClient, switchBotRestOptions)
     { }
 
-    public async Task<List<BaseDevice>> GetDevices()
-    {
-        return await this.flurlClient.BaseUrl.AppendPathSegment(Version)
-                                             .AppendPathSegment("devices")
-                                             .GetJsonAsync<DevicesResponse>()
-                                             .ContinueWith(x => x.Result.Devices);
-    }
-
     public async Task<DevicesResponse> GetDevicesResponse()
     {
         return await this.flurlClient.BaseUrl.AppendPathSegment(Version)
                                              .AppendPathSegment("devices")
                                              .GetJsonAsync<DevicesResponse>();
     }
+
+    public async Task<DeviceStatusResponse<T>> GetDeviceStatusResponse<T>(string deviceId) where T : BaseDeviceStatus
+    {
+        return await this.flurlClient.BaseUrl.AppendPathSegment(Version)
+                                             .AppendPathSegment("devices")
+                                             .AppendPathSegment(deviceId)
+                                             .AppendPathSegment("status")
+                                             .GetJsonAsync<DeviceStatusResponse<T>>();
+    }
+
+    public async Task<List<Device>> GetDevices()
+        => await GetDevicesResponse().ContinueWith(x => x.Result.Devices);
+
+    public async Task<T> GetDeviceStatus<T>(string deviceId) where T : BaseDeviceStatus
+        => await this.GetDeviceStatusResponse<T>(deviceId).ContinueWith(x => x.Result.DeviceStatus);
 }

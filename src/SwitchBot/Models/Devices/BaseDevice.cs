@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using SwitchBot.JsonConverters;
 
 namespace SwitchBot.Models;
 
@@ -7,14 +8,9 @@ public class BaseDevice
     [JsonProperty("deviceId")]
     public string Id { get; init; }
 
-    [JsonProperty("deviceName")]
-    public string Name { get; init; }
-
     [JsonProperty("deviceType")]
-    public string Type { get; init; }
-
-    [JsonProperty("enableCloudService")]
-    public bool IsCloudServiceEnabled { get; init; }
+    [JsonConverter(typeof(EnumDescriptionJsonConverter<DeviceType>))]
+    public DeviceType Type { get; init; }
 
     [JsonProperty("hubDeviceId")]
     public string HubDeviceId { get; init; }

@@ -23,12 +23,42 @@ var devices = await switchBotRestClient.Devices.GetDevices();
 devices.ForEach(device => Console.WriteLine(device.Name));
 ```
 
+## Current supported devices
+
+```
+✅ Hub
+✅ Hub Plus
+✅ Hub Mini
+❌ Hub 2
+✅ Meter
+✅ Meter Plus
+✅ Outdoor Meter 
+❌ Bot 
+❌ Curtain 
+❌ Plug
+❌ Motion Sensor 
+❌ Contact Sensor 
+❌ Color Bulb
+❌ Humidifier
+❌ Smart Fan
+❌ Strip Light
+❌ Plug Mini 
+❌ Lock
+❌ Robot Vacuum Cleaner S1
+❌ Robot Vacuum Cleaner S1 Plus
+❌ Keypad 
+❌ Keypad Touch 
+❌ Ceiling Light
+❌ Ceiling Light Pro
+❌ Blind Tilt 
+```
+
 ## Current supported endpoints
 
 ### Devices 
 ```
 ✅ GET https://api.switch-bot.com/v1.1/devices
-❌ GET https://api.switch-bot.com/v1.1/devices/{deviceId}/status
+✅ GET https://api.switch-bot.com/v1.1/devices/{deviceId}/status
 ❌ POST https://api.switch-bot.com/v1.1/devices/{deviceId}/commands
 ```
 
