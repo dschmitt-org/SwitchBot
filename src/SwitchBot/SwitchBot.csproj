@@ -4,6 +4,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <PackageId>SwitchBot</PackageId>
+    <Authors>dschmitt-org</Authors>
+    <PackageTags>SwitchBot SwitchBotApi</PackageTags>
+    <Description>
+      Package for consuming the SwitchBotAPI to communicate with the SwitchBot environment.
+    </Description>
   </PropertyGroup>
 
   <ItemGroup>
