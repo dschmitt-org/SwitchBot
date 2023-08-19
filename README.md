@@ -1,4 +1,4 @@
-![Nuget](https://img.shields.io/nuget/v/SwitchBot)
+[![Nuget](https://img.shields.io/nuget/v/SwitchBot)](https://www.nuget.org/packages/SwitchBot)
 
 # SwitchBot
 
