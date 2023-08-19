@@ -8,8 +8,9 @@
     <PackageId>SwitchBot</PackageId>
     <Authors>dschmitt-org</Authors>
     <PackageTags>SwitchBot SwitchBotApi</PackageTags>
+    <PackageProjectUrl>https://github.com/dschmitt-org/SwitchBot</PackageProjectUrl>
     <Description>
-      Package for consuming the SwitchBotAPI to communicate with the SwitchBot environment.
+      Package for communicating with the SwitchBot environment.
     </Description>
   </PropertyGroup>
 
