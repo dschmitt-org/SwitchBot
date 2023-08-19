@@ -5,11 +5,10 @@ using Flurl.Util;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using SwitchBot.Options;
-using SwitchBot.RestClient.Devices;
 
-namespace SwitchBot.RestClient;
+namespace SwitchBot;
 
-public class SwitchBotRestClient : ISwitchBotRestClient
+public class SwitchBotRestClient
 {
     private const string Name = "SwitchBot";
     protected internal ILogger logger;

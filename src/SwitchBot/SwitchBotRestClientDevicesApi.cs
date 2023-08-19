@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using SwitchBot.Models;
 using SwitchBot.Options;
 
-namespace SwitchBot.RestClient.Devices;
+namespace SwitchBot;
 public class SwitchBotRestClientDevicesApi : BaseSwitchBotRestClientApiV1_1, ISwitchBotRestClientDevicesApi
 {
     public SwitchBotRestClientDevicesApi(ILogger logger, IFlurlClient flurlClient, SwitchBotRestOptions switchBotRestOptions)

@@ -1,6 +1,6 @@
 using SwitchBot.Models;
 
-namespace SwitchBot.RestClient.Devices;
+namespace SwitchBot;
 public interface ISwitchBotRestClientDevicesApi
 {
     Task<DevicesResponse> GetDevicesResponse();

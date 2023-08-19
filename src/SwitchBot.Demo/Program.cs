@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
+using SwitchBot;
 using SwitchBot.Models;
-using SwitchBot.RestClient;
 
 // Create SwitchBotRestClient
 var switchBotRestClient = new SwitchBotRestClient(options =>
 {
-    options.Token = "0109de8f111f11bf7e3d283668c16e53ce9cfa7c8f3fce50e3e07972e68145ff5535d1e5a2992e199785100fafeb5f0e";
-    options.Secret = "220fae8f4169315553814550b6791b7a";
+    options.Token = "<YOUR TOKEN>";
+    options.Secret = "<YOUR SECRET>";
 });
 
 // Get DevicesResponse
@@ -39,4 +39,3 @@ foreach (var device in devices.Where(x => x.SensorTypes.Contains(SensorType.Temp
 {
     var deviceStatus = await switchBotRestClient.Devices.GetDeviceStatus<TemperatureSensor>(device.Id);
 }
-

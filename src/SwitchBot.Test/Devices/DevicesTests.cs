@@ -4,7 +4,6 @@ using Flurl.Http.Testing;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using SwitchBot.Models;
-using SwitchBot.RestClient;
 
 namespace SwitchBot.Test;
 

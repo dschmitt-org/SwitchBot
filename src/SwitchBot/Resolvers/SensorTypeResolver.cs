@@ -1,6 +1,8 @@
-namespace SwitchBot.Models;
+using SwitchBot.Models;
 
-public static class SensorTypeResolver
+namespace SwitchBot.Resolvers;
+
+internal static class SensorTypeResolver
 {
     public static List<SensorType> Resolve(DeviceType deviceType)
     {

@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using SwitchBot.JsonConverters;
+using SwitchBot.Resolvers;
 
 namespace SwitchBot.Models;
 

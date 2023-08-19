@@ -1,5 +1,4 @@
 using System.ComponentModel;
-using Newtonsoft.Json;
 
 namespace SwitchBot.Models;
 
@@ -25,4 +24,58 @@ public enum DeviceType
 
     [Description("WoIOSensor")]
     OutdoorMeter,
+
+    [Description("Bot")]
+    Bot,
+
+    [Description("Plug")]
+    Plug,
+
+    [Description("Curtain")]
+    Curtain,
+
+    [Description("Motion Sensor")]
+    MotionSensor,
+
+    [Description("Contact Sensor")]
+    ContactSensor,
+
+    [Description("Color Bulb")]
+    ColorBulb,
+
+    [Description("Humidifier")]
+    Humidifier,
+
+    [Description("Smart Fan")]
+    SmartFan,
+
+    [Description("Strip Light")]
+    StripLight,
+
+    [Description("Plug Mini (US)")]
+    PlugMiniUS,
+
+    [Description("Plug Mini (JP)")]
+    PlugMiniJP,
+
+    [Description("Smart Lock")]
+    Lock,
+
+    [Description("Robot Vacuum Cleaner S1")]
+    RobotVacuumCleanerS1,
+
+    [Description("Robot Vacuum Cleaner S1 Plus")]
+    RobotVacuumCleanerS1Plus,
+
+    [Description("Keypad")]
+    Keypad,
+
+    [Description("Keypad Touch")]
+    KeypadTouch,
+
+    [Description("Ceiling Light")]
+    CeilingLight,
+
+    [Description("Ceiling Light Pro")]
+    CeilingLightPro,
 }

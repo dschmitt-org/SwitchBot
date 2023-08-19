@@ -1,10 +1,8 @@
-using Flurl;
 using Flurl.Http;
 using Microsoft.Extensions.Logging;
-using SwitchBot.Models;
 using SwitchBot.Options;
 
-namespace SwitchBot.RestClient.Devices;
+namespace SwitchBot;
 public class BaseSwitchBotRestClientApiV1_1
 {
     protected const string Version = "v1.1";
