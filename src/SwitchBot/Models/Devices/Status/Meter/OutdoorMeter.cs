@@ -1,5 +1,5 @@
 namespace SwitchBot.Models;
 
-public class OutdoorMeter : BaseMeter
+public class OutdoorMeter : TemperatureAndHumiditySensor
 {
 }

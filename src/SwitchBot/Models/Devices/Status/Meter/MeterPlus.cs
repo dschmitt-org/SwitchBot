@@ -1,5 +1,5 @@
 namespace SwitchBot.Models;
 
-public class MeterPlus : BaseMeter
+public class MeterPlus : TemperatureAndHumiditySensor
 {
 }
