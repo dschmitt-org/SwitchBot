@@ -1,3 +1,5 @@
+![Nuget](https://img.shields.io/nuget/v/SwitchBot)
+
 # SwitchBot
 
 This project uses the [SwitchBotAPI](https://github.com/OpenWonderLabs/SwitchBotAPI) to communicate with the SwitchBot environment.

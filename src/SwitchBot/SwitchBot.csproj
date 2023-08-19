@@ -9,7 +9,8 @@
     <Version>1.0.1</Version>
     <Authors>dschmitt-org</Authors>
     <PackageTags>SwitchBot SwitchBotApi</PackageTags>
-    <PackageProjectUrl>https://github.com/dschmitt-org/SwitchBot</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dschmitt-org/SwitchBot</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>
       Package for communicating with the SwitchBot environment.
     </Description>
