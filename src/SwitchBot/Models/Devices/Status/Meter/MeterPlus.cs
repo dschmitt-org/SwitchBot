@@ -1,5 +1,4 @@
 namespace SwitchBot.Models;
 
-public class MeterPlus : TemperatureAndHumiditySensor
-{
-}
+public class MeterPlus : TemperatureHumidityBatteryVersionStatus
+{ }

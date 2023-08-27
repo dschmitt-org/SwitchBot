@@ -2,8 +2,11 @@ using Newtonsoft.Json;
 
 namespace SwitchBot.Models;
 
-public class HumiditySensor : BaseDeviceStatus
+internal interface IHumidityStatus
 {
+    /// <summary>
+    /// Humidity percentage.
+    /// </summary>
     [JsonProperty("humidity")]
     public byte Humidity { get; init; }
 }

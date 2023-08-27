@@ -1,4 +1,4 @@
-[![Nuget](https://img.shields.io/nuget/v/SwitchBot)](https://www.nuget.org/packages/SwitchBot)
+![Nuget](https://img.shields.io/nuget/v/SwitchBot)](https://www.nuget.org/packages/SwitchBot)
 
 # SwitchBot
 
@@ -28,10 +28,10 @@ foreach (var device in devices.Where(x => x.Type == DeviceType.MeterPlus))
     var deviceStatusResponse = await switchBotRestClient.Devices.GetDeviceStatusResponse<MeterPlus>(device.Id);
 }
 
-// Get DeviceStatusResponse by SensorType
-foreach (var device in devices.Where(x => x.SensorTypes.Contains(SensorType.TemperatureSensor)))
+// Get DeviceStatusResponse by StatusType
+foreach (var device in devices.Where(x => x.StatusTypes.Contains(StatusType.Temperature)))
 {
-    var deviceStatus = await switchBotRestClient.Devices.GetDeviceStatusResponse<TemperatureSensor>(device.Id);
+    var deviceStatus = await switchBotRestClient.Devices.GetDeviceStatusResponse<TemperatureStatus>(device.Id);
 }
 
 // Get DeviceStatus
@@ -40,14 +40,56 @@ foreach (var device in devices.Where(x => x.Type == DeviceType.MeterPlus))
     var deviceStatus = await switchBotRestClient.Devices.GetDeviceStatus<MeterPlus>(device.Id);
 }
 
-// Get DeviceStatus by SensorType
-foreach (var device in devices.Where(x => x.SensorTypes.Contains(SensorType.TemperatureSensor) && x.SensorTypes.Contains(SensorType.HumiditySensor)))
+// Get DeviceStatus by StatusType
+foreach (var device in devices.Where(x => x.StatusTypes.Contains(StatusType.Temperature) && x.StatusTypes.Contains(StatusType.Humidity)))
 {
-    var deviceStatus = await switchBotRestClient.Devices.GetDeviceStatus<TemperatureAndHumiditySensor>(device.Id);
+    var deviceStatus = await switchBotRestClient.Devices.GetDeviceStatus<TemperatureAndHumidityStatus>(device.Id);
 }
 ```
 
-## Supported devices
+## Currently supported api endpoints
+
+### Devices 
+```
+✅ GET https://api.switch-bot.com/v1.1/devices
+```
+
+#### Supported devices
+
+```
+✅ Hub
+✅ Hub Plus
+✅ Hub Mini
+✅ Hub 2
+✅ Meter
+✅ Meter Plus
+✅ Outdoor Meter 
+✅ Bot 
+✅ Curtain 
+✅ Plug
+✅ Motion Sensor 
+✅ Contact Sensor 
+✅ Color Bulb
+✅ Humidifier
+✅ Smart Fan
+✅ Strip Light
+✅ Plug Mini 
+✅ Lock
+✅ Robot Vacuum Cleaner S1
+✅ Robot Vacuum Cleaner S1 Plus
+✅ Keypad 
+✅ Keypad Touch 
+✅ Ceiling Light
+✅ Ceiling Light Pro
+✅ Blind Tilt 
+```
+
+### Status 
+```
+✅ GET https://api.switch-bot.com/v1.1/devices/{deviceId}/status
+```
+
+#### Supported devices
 
 ```
 ✅ Hub
@@ -77,12 +119,8 @@ foreach (var device in devices.Where(x => x.SensorTypes.Contains(SensorType.Temp
 ❌ Blind Tilt 
 ```
 
-## Supported api endpoints
-
-### Devices 
+### Commands
 ```
-✅ GET https://api.switch-bot.com/v1.1/devices
-✅ GET https://api.switch-bot.com/v1.1/devices/{deviceId}/status
 ❌ POST https://api.switch-bot.com/v1.1/devices/{deviceId}/commands
 ```
 

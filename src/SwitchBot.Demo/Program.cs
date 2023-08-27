@@ -5,8 +5,8 @@ using SwitchBot.Models;
 // Create SwitchBotRestClient
 var switchBotRestClient = new SwitchBotRestClient(options =>
 {
-    options.Token = "<YOUR TOKEN>";
-    options.Secret = "<YOUR SECRET>";
+    options.Token = "0109de8f111f11bf7e3d283668c16e53ce9cfa7c8f3fce50e3e07972e68145ff08a1a2bb7b594e613335c09c3764a2bd";
+    options.Secret = "401c417b71cedc27ddd3b5d098ec709b";
 });
 
 // Get DevicesResponse
@@ -30,12 +30,12 @@ foreach (var device in devices.Where(x => x.Type == DeviceType.MeterPlus))
 }
 
 // Get DeviceStatus by SensorType
-foreach (var device in devices.Where(x => x.SensorTypes.Contains(SensorType.TemperatureSensor) && x.SensorTypes.Contains(SensorType.HumiditySensor)))
+foreach (var device in devices.Where(x => x.StatusTypes.Contains(StatusType.Temperature) && x.StatusTypes.Contains(StatusType.Humidity)))
 {
-    var deviceStatus = await switchBotRestClient.Devices.GetDeviceStatus<TemperatureAndHumiditySensor>(device.Id);
+    var deviceStatus = await switchBotRestClient.Devices.GetDeviceStatus<TemperatureHumidityStatus>(device.Id);
 }
 
-foreach (var device in devices.Where(x => x.SensorTypes.Contains(SensorType.TemperatureSensor)))
+foreach (var device in devices.Where(x => x.StatusTypes.Contains(StatusType.Temperature)))
 {
-    var deviceStatus = await switchBotRestClient.Devices.GetDeviceStatus<TemperatureSensor>(device.Id);
+    var deviceStatus = await switchBotRestClient.Devices.GetDeviceStatus<TemperatureStatus>(device.Id);
 }
